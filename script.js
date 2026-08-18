@@ -37,18 +37,18 @@ async function cargarProductos() {
 function aplicarFiltrosYOrden() {
     let productosFiltrados = [...productosOriginales];
     
-    // Aplicar filtros
+    
     for (var i = 0; i < filtrosActivos.length; i++) {
         var filtro = filtrosActivos[i];
         productosFiltrados = aplicarFiltro(productosFiltrados, filtro);
     }
     
-    // Aplicar orden
+
     var campoOrden = document.getElementById('ordenarPor').value;
     var direccion = document.getElementById('direccionOrden').value;
     productosFiltrados = ordenarProductos(productosFiltrados, campoOrden, direccion);
     
-    // Actualizar contador
+   
     document.getElementById('contadorProductos').textContent = 'Mostrando ' + productosFiltrados.length + ' productos';
     
     renderizarProductos(productosFiltrados);
@@ -90,7 +90,7 @@ function ordenarProductos(productos, campo, direccion) {
         var valorA = a[campo];
         var valorB = b[campo];
         
-        // Si es numero, convertir a float
+        
         if (campo === 'precio' || campo === 'stock' || campo === 'id') {
             valorA = parseFloat(valorA) || 0;
             valorB = parseFloat(valorB) || 0;
@@ -173,7 +173,7 @@ function agregarFiltro() {
     var campos = ['id', 'nombre', 'sku', 'descripcion', 'precio', 'stock', 'estado', 'categoria', 'marca'];
     var operadores = ['contiene', 'igual', 'empieza', 'termina'];
     
-    // Para campos numericos, agregar operadores de comparacion
+    
     var camposNumericos = ['id', 'precio', 'stock'];
     
     var filtro = {
@@ -198,7 +198,7 @@ function renderizarFiltros() {
     var container = document.getElementById('filtrosActivos');
     var html = '';
     
-    // Campos disponibles
+    
     var campos = ['id', 'nombre', 'sku', 'descripcion', 'precio', 'stock', 'estado', 'categoria', 'marca'];
     var operadoresTexto = ['contiene', 'igual', 'empieza', 'termina'];
     var operadoresNumero = ['contiene', 'igual', 'mayor', 'menor'];
@@ -211,7 +211,7 @@ function renderizarFiltros() {
         html += '<div class="filtro-item">';
         html += '<span>Filtro ' + (i + 1) + ':</span>';
         
-        // Select de campo
+        
         html += '<select class="filtro-campo" data-id="' + filtro.id + '">';
         for (var c = 0; c < campos.length; c++) {
             var selected = campos[c] === filtro.campo ? 'selected' : '';
@@ -219,7 +219,7 @@ function renderizarFiltros() {
         }
         html += '</select>';
         
-        // Select de operador
+       
         html += '<select class="filtro-operador" data-id="' + filtro.id + '">';
         for (var o = 0; o < operadores.length; o++) {
             var selectedOp = operadores[o] === filtro.operador ? 'selected' : '';
@@ -227,17 +227,17 @@ function renderizarFiltros() {
         }
         html += '</select>';
         
-        // Input de valor
+       
         html += '<input type="text" class="filtro-valor" data-id="' + filtro.id + '" placeholder="Valor..." value="' + filtro.valor + '">';
         
-        // Boton eliminar
+      
         html += '<button class="btn-eliminar-filtro" onclick="eliminarFiltro(' + filtro.id + ')">×</button>';
         html += '</div>';
     }
     
     container.innerHTML = html;
     
-    // Agregar event listeners
+  
     var camposSelect = container.querySelectorAll('.filtro-campo');
     for (var s = 0; s < camposSelect.length; s++) {
         camposSelect[s].addEventListener('change', function(e) {
@@ -297,7 +297,7 @@ function actualizarOperadores(id) {
     
     select.innerHTML = html;
     
-    // Si el operador actual no es valido para este campo, resetear
+   
     if (operadores.indexOf(valorActual) === -1) {
         filtro.operador = operadores[0];
         select.value = operadores[0];
