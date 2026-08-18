@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajo practico 2</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Tecnología · Panel</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Listado</h1>
-    
+
+<div class="contenedor">
+
+    <h1>Tienda Tecnología</h1>
+    <div class="subtitulo">Gestion de productos · Filtros inteligentes</div>
+
     <div class="filtros-container">
         <div class="filtros-header">
-            <h1>Mis Productos</h1>
+            <h2>Mis Productos</h2>
             <div class="filtros-controls">
                 <div>
-                    <label for="ordenarPor">Ordenar Por:</label>
-                    <select id="ordenarPor" name="ordenarPor">
+                    <label for="ordenarPor">Ordenar</label>
+                    <select id="ordenarPor">
                         <option value="id">ID</option>
                         <option value="nombre">Nombre</option>
                         <option value="sku">SKU</option>
@@ -23,30 +27,29 @@
                         <option value="precio">Precio</option>
                         <option value="stock">Stock</option>
                         <option value="estado">Estado</option>
-                        <option value="fecha_registro">Fecha de Registro</option>
+                        <option value="fecha_registro">Fecha</option>
                         <option value="categoria">Categoria</option>
                         <option value="marca">Marca</option>
                     </select>
                 </div>
                 <div>
-                    <label for="direccionOrden">Orden:</label>
+                    <label for="direccionOrden">Direccion</label>
                     <select id="direccionOrden">
                         <option value="ASC">Ascendente</option>
                         <option value="DESC">Descendente</option>
                     </select>
                 </div>
-                <button id="btnAgregarFiltro" class="btn-filtro">+ Agregar Filtro</button>
-                <button id="btnLimpiarFiltros" class="btn-limpiar">Limpiar Filtros</button>
+                <button class="btn-filtro" id="btnAgregarFiltro">+ Agregar Filtro</button>
+                <button class="btn-limpiar" id="btnLimpiarFiltros">Limpiar Filtros</button>
             </div>
         </div>
-        
-        <div id="filtrosActivos" class="filtros-activos">
-            <!-- Los filtros activos se agregaran aqui -->
-        </div>
+
+        <div id="filtrosActivos" class="filtros-activos"></div>
     </div>
 
     <div class="info-productos">
         <span id="contadorProductos">Mostrando 0 productos</span>
+        <span style="font-size:12px; color:#8aaac4;">Hasta 3 filtros simultaneos</span>
     </div>
 
     <table>
@@ -59,14 +62,18 @@
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Estado</th>
-                <th>Fecha de Registro</th>
+                <th>Fecha</th>
                 <th>Categoria</th>
                 <th>Marca</th>
             </tr>
         </thead>
         <tbody id="tabla-productos">
+            <tr><td colspan="10" style="text-align:center; padding:40px 0; color:#8aaac4;">Cargando productos...</td></tr>
         </tbody>
     </table>
-    <script src="script.js"></script>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
