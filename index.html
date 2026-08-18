@@ -8,26 +8,51 @@
 </head>
 <body>
     <h1>Listado</h1>
-    <div>
-        <h1> Mis Poductos</h1>
-        <label for="Producto">Ordenar Por</label>
-            <select id="Producto" name="Productos">
-            <option value="id">Id</option>
-            <option value="nombre">Nombre</option>
-            <option value="sku">SKU</option>
-            <option value="sku">Descripcion</option>
-            <option value="sku">Precio</option>
-            <option value="sku">Stock</option>
-            <option value="sku">Estado</option>
-            <option value="sku">Fecha de Registro</option>
-            <option value="sku">Categoria</option>
-            <option value="sku">Marca</option>
-        </select>
+    
+    <div class="filtros-container">
+        <div class="filtros-header">
+            <h1>Mis Productos</h1>
+            <div class="filtros-controls">
+                <div>
+                    <label for="ordenarPor">Ordenar Por:</label>
+                    <select id="ordenarPor" name="ordenarPor">
+                        <option value="id">ID</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="sku">SKU</option>
+                        <option value="descripcion">Descripcion</option>
+                        <option value="precio">Precio</option>
+                        <option value="stock">Stock</option>
+                        <option value="estado">Estado</option>
+                        <option value="fecha_registro">Fecha de Registro</option>
+                        <option value="categoria">Categoria</option>
+                        <option value="marca">Marca</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="direccionOrden">Orden:</label>
+                    <select id="direccionOrden">
+                        <option value="ASC">Ascendente</option>
+                        <option value="DESC">Descendente</option>
+                    </select>
+                </div>
+                <button id="btnAgregarFiltro" class="btn-filtro">+ Agregar Filtro</button>
+                <button id="btnLimpiarFiltros" class="btn-limpiar">Limpiar Filtros</button>
+            </div>
+        </div>
+        
+        <div id="filtrosActivos" class="filtros-activos">
+            <!-- Los filtros activos se agregaran aqui -->
+        </div>
     </div>
+
+    <div class="info-productos">
+        <span id="contadorProductos">Mostrando 0 productos</span>
+    </div>
+
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>SKU</th>
                 <th>Descripcion</th>
@@ -40,7 +65,6 @@
             </tr>
         </thead>
         <tbody id="tabla-productos">
-
         </tbody>
     </table>
     <script src="script.js"></script>
