@@ -1,60 +1,108 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f6f9;
-  color: #333;
+.estado-activo {
+    color: #27ae60;
+    font-weight: 600;
+    background: #e8f5e9;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
-h1 {
-  font-size: 24px;
-  color: #2c3e50;
-  margin-bottom: 20px;
+.estado-inactivo {
+    color: #e74c3c;
+    font-weight: 600;
+    background: #fde8e8;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
-div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 15px 20px;
-  border-radius: 8px 8px 0 0;
-  border-bottom: 2px solid #eef2f7;
+.precio {
+    font-weight: 600;
+    color: #2c3e50;
 }
 
-div h1 {
-  font-size: 20px;
-  margin: 0;
-  color: #34495e;
+div > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 
-/* Estilo para mejorar la apariencia del select */
+label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
 select {
-  padding: 6px 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+select:hover {
+    border-color: #3498db;
+}
+
+select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  border-radius: 0 0 8px 8px;
-  overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
 th {
-  background-color: #f8f9fa;
-  color: #555;
-  font-size: 13px;
-  text-align: left;
-  border-bottom: 2px solid #eef2f7;
+    background-color: #f8f9fa;
+    color: #555;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 2px solid #eef2f7;
+    padding: 12px 10px;
+    font-weight: 600;
 }
 
-/* Espaciado uniforme para encabezados y celdas de datos */
-th, td {
-  padding: 12px 10px;
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eef2f7;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+@media (max-width: 768px) {
+    div {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    div > div {
+        justify-content: center;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 6px 4px;
+    }
 }
